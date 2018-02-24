@@ -5,3 +5,35 @@ body {font-size: 16px;}
 img {margin-bottom: -8px;}
 
 .mySlides {display: none;}
+
+
+aside {
+    background: #1f8dd6; /* same color as selected state on site menu */
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    color: #fff;
+    margin-bottom: 2em;
+}
+textarea {
+  width: 100%;
+}
+.content-head {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 2em 0 1em;
+}
+
+.is-center {
+  text-align: center;
+}
+
+.checkmark {
+    position: relative;
+    right: 100px;
+    float: right;
+}
+
+#name, #email {
+  width: 50%;
+}
