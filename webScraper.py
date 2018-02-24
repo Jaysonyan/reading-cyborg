@@ -12,6 +12,8 @@ homepage.close()
 homeSoup = soup(homepageHTML, "html.parser")
 rawLinks = homeSoup.findAll("figure", {"class":"imgcs"})
 
+storyTitles = open("storyName.txt", 'w')
+
 for item in rawLinks:
     storyURL = 'https://americanliterature.com'+ item.a['href']
     storypage = urlopen(storyURL)
@@ -22,7 +24,7 @@ for item in rawLinks:
 
     storyInfo = storySoup.findAll("div", {"class":"jumbotron"})
     try:
-        title = storyInfo[0].h1.cite.get_text()
+        title = storyInfo[0].h1.cite.get_text().replace("-", ' ')
         storyContent = storySoup.find_all(["p", "pre"])
         garbage = []
         for i in range(0,len(storyContent)):
@@ -32,18 +34,14 @@ for item in rawLinks:
             storyContent[i] = re.sub('<[^>]+>', '', storyContent[i])
 
         for i in range(len(garbage)-1,-1, -1):
-            print storyContent[garbage[i]]
             del storyContent[garbage[i]]
 
         storyContent = [x for x in storyContent if x != '']
 
-
         filename = "%s.txt" %title
-
-
         storyText = open(filename , 'w')
-
         storyText.write(title+",\n")
+        storyTitles.write(title+",")
 
         for paragraph in storyContent:
             storyText.write(paragraph)
@@ -51,3 +49,4 @@ for item in rawLinks:
         storyText.close()
     except:
         pass
+storyTitles.close()
