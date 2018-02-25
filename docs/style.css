@@ -37,3 +37,20 @@ textarea {
 #name, #email {
   width: 50%;
 }
+
+.background {
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+}
+
+#home {
+  background-image: url("images/bookwallpaper.jpg");
+}
+
+#home .profile-img {
+  z-index: 50;
+  width: 300px;
+  border-radius: 50%; 
+}
