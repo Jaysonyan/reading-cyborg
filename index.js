@@ -105,7 +105,10 @@ function readStoryFromSession(intent, session, callback) {
         key += s
     }
     key = key.toLowerCase()
-    key += ".txt"
+    if (key === 'we do' || key === 'a surprise' || 'something i want to hear'){
+            speechOutput += "Wow these judges look impressed!"
+        }
+    else key += ".txt"
     var getParams = {
         Bucket: 'readingcyborg',
         Key: key
