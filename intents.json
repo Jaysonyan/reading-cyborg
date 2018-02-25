@@ -1,0 +1,34 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "ReadingCyborg",
+        "samples": [
+          "read me {Story}",
+          "read {Story}",
+          "can you read me {Story}",
+          "can you read {Story}"
+        ],
+        "slots": [
+          {
+            "name": "Story",
+            "type": "AMAZON.SearchQuery"
+          }
+        ]
+      }
+    ],
+    "invocationName": "readingcyborg"
+  }
+}
