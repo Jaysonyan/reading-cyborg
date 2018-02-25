@@ -48,10 +48,10 @@
     <div class="w3-col l8 m6">
       <h1 class="w3-jumbo"><b>The App</b></h1>
       <h1 class="w3-xxxlarge w3-text-green"><b>What is it?</b></h1>
-      <p><span class="w3-xlarge">Listen to children stories hands-free!</span> Listen to over 100+ stories including cult classics like 'red-riding hood,' 
-      'the three little pigs,' 'Cinderella,' and so much more. What better way to spend time with you kids or spend time away
+      <p><span class="w3-xlarge">Listen to children stories hands-free!</span> Listen to over 100+ stories including cult classics like 'red-riding hood,'
+      'the three little pigs,' 'Cinderella,' and so much more. What better way to spend time with your kids or spend time away
       from your kids while keeping them literate, cultured, and imaginative. Get Reading Cyborg for free today in the Amazon skills store today!</p>
-      
+
     </div>
     <div class="w3-col l4 m6">
       <img src="images/alexa-test.jpg" class="w3-image w3-right w3-hide-small" width="335" style="height:400px">
@@ -65,7 +65,7 @@
   </div>
 </div>
 
-<!-- Modal 
+<!-- Modal
 <div id="download" class="w3-modal w3-animate-opacity">
   <div class="w3-modal-content" style="padding:32px">
     <div class="w3-container w3-white">
@@ -99,7 +99,7 @@
     </div>
   </div>
   <!-- Accordian -->
-  <button onclick="myAccordian('Demo1')" style="padding:16px 0px 16px 0px; margin: 64px 0px 32px 0px" class="w3-button w3-block w3-gray w3-middle-align">Just say, "Alexa, read me..."</button>
+  <button onclick="myAccordian('Demo1')" style="padding:16px 0px 16px 0px; margin: 64px 0px 32px 0px" class="w3-button w3-block w3-gray w3-middle-align">Just say, "Alexa, ask Reading Cyborg to read me..."</button>
   <div id="Demo1" class="w3-hide w3-animate-left">
     <div class="w3-middle w3-row">
       <p class="s4 w3-col">The Three Little Pigs</p>
@@ -134,18 +134,18 @@
     </div>
     <div class="w3-col m7">
       <form id="gform" data-email="example@email.net" class="w3-container w3-card-4 w3-padding-16 w3-white" method="POST" action="https://script.google.com/macros/s/AKfycbwP8Ay9kqgVH9WAKgy91CcHxlq-dSIyugBKhwU_MxNpYyujsTg/exec" target="_blank">
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Name</label>
         <input class="w3-input" type="text" name="name" required>
       </div>
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Email</label>
         <input class="w3-input" type="text" name="email" required>
       </div>
-      <div class="w3-section">      
+      <div class="w3-section">
         <label>Message</label>
         <input class="w3-input" type="text" name="message" required>
-      </div>  
+      </div>
       <button id="submit" type="submit" class="w3-button w3-right w3-theme" onclick="buttonClick()">Send</button>
       </form>
     </div>
@@ -160,7 +160,7 @@ action="https://script.google.com/macros/s/AKfycbwP8Ay9kqgVH9WAKgy91CcHxlq-dSIyu
 <script data-cfasync="false" type="text/javascript"
 src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 <script data-cfasync="false" type="text/javascript"
-src="/form-submission-handler.js"></script> 
+src="/form-submission-handler.js"></script>
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge">
@@ -179,12 +179,12 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
+  if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+     x[i].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";  
+  x[slideIndex-1].style.display = "block";
 }
 
 /*
@@ -199,7 +199,7 @@ function myAccordian(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
-    } else { 
+    } else {
         x.className = x.className.replace(" w3-show", "");
     }
 }
