@@ -16,10 +16,14 @@
       {
         "name": "ReadingCyborg",
         "samples": [
+          "tell me {Story}",
           "read me {Story}",
-          "read {Story}",
-          "can you read me {Story}",
-          "can you read {Story}"
+         "read {Story}",
+         "can you read me {Story}",
+         "can you read {Story}",
+         "to {Story}",
+         "please read me {Story}",
+         "please read {Story}"
         ],
         "slots": [
           {
