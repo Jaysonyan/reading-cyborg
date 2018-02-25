@@ -1,4 +1,4 @@
-# read-it-to.me
+# Reading Cyborg
 
 ## About
 An alexa "skill" that allows your alexa to read a children's story from our database and features features such as:
