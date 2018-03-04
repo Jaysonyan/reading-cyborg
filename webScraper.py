@@ -4,7 +4,7 @@ import re
 import os
 
 os.chdir('stories')
-webURL = "https://americanliterature.com/short-stories-for-children"
+webURL = "https://americanliterature.com/dog-stories"
 homepage = urlopen(webURL)
 homepageHTML = homepage.read()
 homepage.close()
