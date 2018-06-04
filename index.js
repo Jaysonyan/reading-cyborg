@@ -100,13 +100,36 @@ const s3 = new aws.S3();
 function readStoryFromSession(intent, session, callback) {
 
 
+  //converts numbers from voice commands to words
+  var temparr = [['1','one'],
+                ['2','two'],
+                ['3','three'],
+                ['4','four'],
+                ['5','five'],
+                ['6','six'],
+                ['7','seven'],
+                ['8','eight'],
+                ['9','nine'],
+                ['10','ten']]
+    var map = new Map(temparr);
 
     //speechOutput = key ;
-    var key = intent.slots.Item.value
-    console.log(key)
-    key = key.toLowerCase()+".txt"
-    //speechOutput = key
-    var speechOutput = "";
+    var key = intent.slots.Story.value.toLowerCase();
+
+    var array = key.split(" ");
+    var goodkey = "";
+    for(var i = 0; i < array.length; i++){
+        var word = array[i];
+        if(map.has(word)){
+            goodkey+= map.get(word);
+        }else{
+            goodkey += word;
+        }
+        goodkey += " ";
+    }
+    goodkey = goodkey.substring(0,goodkey.length-1);
+    goodkey += ".txt";
+    console.log(goodkey)
 
     // Retrieve the bucket & key for the uploaded S3 object that
     // caused this Lambda function to be triggered
@@ -117,7 +140,7 @@ function readStoryFromSession(intent, session, callback) {
         s3.getObject({
 
             Bucket: "readingcyborg",
-            Key: key
+            Key: goodkey
         }, function(err, data) {
 
             if (err) {
