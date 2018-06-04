@@ -1,4 +1,5 @@
 
+
 exports.handler = function (event, context) {
 
     try {
@@ -97,51 +98,57 @@ const s3 = new aws.S3();
 
 
 function readStoryFromSession(intent, session, callback) {
-    //console.log("HERE" + intent.slots.Story.type)
-    var speechOutput = ""
-    var key = ""
-    var str = intent.slots.Story.value.split(" ");
-    for(let s of str){
-        key += s
+
+
+
+    //speechOutput = key ;
+    var key = intent.slots.Item.value
+    console.log(key)
+    key = key.toLowerCase()+".txt"
+    //speechOutput = key
+    var speechOutput = "";
+
+    // Retrieve the bucket & key for the uploaded S3 object that
+    // caused this Lambda function to be triggered
+
+    try{
+
+         // Retrieve the object
+        s3.getObject({
+
+            Bucket: "readingcyborg",
+            Key: key
+        }, function(err, data) {
+
+            if (err) {
+                console.log(err, err.stack);
+
+                //callback(err);
+            } else {
+                var s = data.Body.toString('ascii')
+                console.log("Raw text:\n" + s);
+                speechOutput = "Okay, this story is called "+key + " .";
+                speechOutput += s;
+              //  callback(null, null);
+            }
+        });
     }
-    key = key.toLowerCase()
-    if (key === 'we do' || key === 'a surprise' || 'something i want to hear'){
-            speechOutput += "Wow these judges look impressed!"
-        }
-    else key += ".txt"
-    var getParams = {
-        Bucket: 'readingcyborg',
-        Key: key
-    };
-
-    s3.getObject(getParams,function(err,data){
-        speechOutput = key + " middle"
-        if(err){
-            speechOutput = key + " two"
-            console.log(err, err.stack)
-            callback(err)
-        }
-        else{
-          speechOutput = "Sure, hope you enjoy! "
-            //speechOutput += " "+ key + " three"
-            speechOutput += data.Body.toString("ascii")
-            callback(null,null)
-            console.log("somethin g")
-            console.log(data.Body.toString('ascii'));
-        }
-
-    });
+    catch (e) {
+        console.log('error')
+    }
 
 
-    console.log(speechOutput)
+
+    console.log(speechOutput);
     const sessionAttributes = {};
     let shouldEndSession = false;
 
     // Setting repromptText to null signifies that we do not want to reprompt the user.
     // If the user does not respond or says something that is not understood, the session
     // will end.
-    callback(sessionAttributes,
-         buildSpeechletResponse(intent.name, speechOutput, null, shouldEndSession));
+//  callback(sessionAttributes,
+        buildSpeechletResponse(intent.name, speechOutput, null, shouldEndSession);
+
 }
 
 
